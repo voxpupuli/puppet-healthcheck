@@ -4,9 +4,9 @@
   "author": "puppetcommunity",
   "summary": "Puppet resources to evauluate the health and status of things",
   "license": "Apache-2.0",
-  "source": "https://github.com/puppetcommunity/puppet-healthcheck",
-  "project_page": "https://github.com/puppetcommunity/puppet-healthcheck",
-  "issues_url": "https://github.com/puppetcommunity/puppet-healthcheck/issues",
+  "source": "https://github.com/puppet-community/puppet-healthcheck",
+  "project_page": "https://github.com/puppet-community/puppet-healthcheck",
+  "issues_url": "https://github.com/puppet-community/puppet-healthcheck/issues",
   "description": "Healthcheck Puppet Module",
   "operatingsystem_support": [
     {
