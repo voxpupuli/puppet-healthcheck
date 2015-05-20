@@ -1,0 +1,66 @@
+{
+  "name": "puppet-healthcheck",
+  "version": "0.0.1",
+  "author": "puppetcommunity",
+  "summary": "Puppet resources to evauluate the health and status of things",
+  "license": "Apache-2.0",
+  "source": "https://github.com/puppetcommunity/puppet-healthcheck",
+  "project_page": "https://github.com/puppetcommunity/puppet-healthcheck",
+  "issues_url": "https://github.com/puppetcommunity/puppet-healthcheck/issues",
+  "description": "Healthcheck Puppet Module",
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "operatingsystemrelease": [
+        "5",
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "10.04",
+        "12.04",
+        "14.04"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.4.0"
+    }
+  ],
+  "dependencies": []
+}
