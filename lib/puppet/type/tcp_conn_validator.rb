@@ -5,10 +5,7 @@ Puppet::Type.newtype(:tcp_conn_validator) do
           prevent configuration changes from being applied if the host cannot be
           reached, but it could potentially be used for other purposes such as monitoring."
 
-  ensurable do
-    defaultvalues
-    defaultto :present
-  end
+  ensurable
 
   newparam(:name, :namevar => true) do
     desc 'An arbitrary name used as the identity of the resource.'
@@ -19,6 +16,11 @@ Puppet::Type.newtype(:tcp_conn_validator) do
     munge do |value|
       Array(value).first
     end
+  end
+
+  newparam(:reachable) do
+    desc 'Should the server be responding or not'
+    defaultto true
   end
 
   newparam(:port) do
