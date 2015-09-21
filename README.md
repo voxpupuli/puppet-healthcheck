@@ -38,3 +38,7 @@ The time to sleep in seconds between ‘tries’. Default: 1
 ####`timeout`
 
 Number of seconds to wait before timing out. Default: 60
+
+####`reachable`
+
+Should the server be responding or not
