@@ -26,7 +26,7 @@ Puppet::Type.newtype(:tcp_conn_validator) do
   end
 
   newparam(:try_sleep) do
-    desc 'The time to sleep in seconds between ‘tries’.'
+    desc "The time to sleep in seconds between 'tries'."
     defaultto 1
 
     validate do |value|
