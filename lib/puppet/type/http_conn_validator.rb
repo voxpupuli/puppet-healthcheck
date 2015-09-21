@@ -64,4 +64,18 @@ Puppet::Type.newtype(:http_conn_validator) do
     end
   end
 
+  newparam(:expected_code) do
+    desc 'The HTTP status code that should be expected; defaults to 200.'
+    defaultto 200
+
+    validate do |value|
+      # This will raise an error if the string is not convertible to an integer
+      Integer(value)
+    end
+
+    munge do |value|
+      Integer(value)
+    end
+  end
+
 end

@@ -85,3 +85,7 @@ The time to sleep in seconds between ‘tries’. Default: 1
 
 Number of seconds to wait before timing out. Default: 60
 
+####`expected_code`
+
+Expected HTTP result code to consider success. Default: 200
+
