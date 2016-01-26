@@ -50,7 +50,7 @@ Puppet::Type.type(:http_conn_validator).provide(:http_conn_validator) do
     # If `#create` is called, that means that `#exists?` returned false, which
     # means that the connection could not be established... so we need to
     # cause a failure here.
-    raise Puppet::Error, "Unable to connect to the HTTP server! (#{@validator.http_server}:#{@validator.http_port})"
+    raise Puppet::Error, "Unable to connect to the HTTP server! (#{@validator.http_server}:#{@validator.http_port} with HTTP code #{@validator.expected_code})"
   end
 
   # Returns the existing validator, if one exists otherwise creates a new object
@@ -58,7 +58,13 @@ Puppet::Type.type(:http_conn_validator).provide(:http_conn_validator) do
   #
   # @api private
   def validator
-    @validator ||= PuppetX::PuppetCommunity::HttpValidator.new(resource[:name], resource[:host], resource[:port], resource[:use_ssl], resource[:test_url])
+    @validator ||= PuppetX::PuppetCommunity::HttpValidator.new(
+      resource[:name],
+      resource[:host],
+      resource[:port],
+      resource[:use_ssl],
+      resource[:test_url],
+      resource[:expected_code])
   end
 
 end
