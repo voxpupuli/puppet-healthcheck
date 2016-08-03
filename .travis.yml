@@ -1,25 +1,46 @@
 ---
-notifications:
-  email: false
-language: ruby
 sudo: false
-bundler_args: --without development system_tests
-script: "bundle exec rake validate && bundle exec rake lint && bundle exec rake spec SPEC_OPTS='--format documentation'"
+language: ruby
+cache: bundler
+bundler_args: --without system_tests development
+before_install:
+  - bundle -v
+  - rm Gemfile.lock || true
+  - gem update --system
+  - gem update bundler
+  - gem --version
+  - bundle -v
+script:
+  - 'bundle exec rake $CHECK'
 matrix:
   fast_finish: true
   include:
   - rvm: 1.9.3
-    env: PUPPET_GEM_VERSION="~> 3.0"
-  - rvm: 2.0.0
-    env: PUPPET_GEM_VERSION="~> 3.0"
+    env: PUPPET_VERSION="~> 3.0" STRICT_VARIABLES="yes" CHECK=test
+  - rvm: 1.9.3
+    env: PUPPET_VERSION="~> 3.0" STRICT_VARIABLES="yes" FUTURE_PARSER="yes" CHECK=test
+  - rvm: 2.1
+    env: PUPPET_VERSION="~> 3.0" STRICT_VARIABLES="yes" CHECK=test
+  - rvm: 2.1
+    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=test
+  - rvm: 2.2
+    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=test
+  - rvm: 2.3.1
+    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=build
+  - rvm: 2.3.1
+    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=rubocop
+  - rvm: 2.3.1
+    env: PUPPET_VERSION="~> 4.0" STRICT_VARIABLES="yes" CHECK=test
+notifications:
+  email: false
 deploy:
   provider: puppetforge
   user: puppet
   password:
-    secure: "Pl9K0PS+TsfX/yeFgFMCuCu3wUFsDkYZh2AjkxC2qH3OoI6hoVd1hevmj8U23ee5stDBMNhe/WnO2VVAYiFJHaIKhlCBskCdC+W8jFnyEvKUlQu290UoLgIIKsxIhWyeD467XNwTPmhJ0M+O+XQHNh1enajrZ3kvxpA7HNy5PxSARvJidRY58hT+DTHltSob8q/Bycr7MvrNBADVHSmS4+IvGNnGkLI5pLikPmX5a2V9zlmVoFpZW8wL22DNjf9OWP5L2yenzSh1xgyyNMevw4hF6DtmSngEGZuVqQU41OKyV4GMMinUibi7qvdluenH8e3c0gqECwTWQKdfj/GLnTE/xMtQgrENpa5tCgkDklLK1pEHWFbIeEUBL1XYdXXFctHc+2fdmFWgj7J0xQ1kbLLKP5oyGyxyaSJ+oIW6fc9SeZWAy3SRmdLmQjtM6ItfZRxLFB+pay42I24E3vpwTX6UN+Z10Cm/V6p74m05du/IllcRn/CDRdxCL+pQ0xQi5FBwCEnmT5BBnVxx0UGSE9U1h6W45QRQIJ1hIOE7dStngvWGoq0p3j29QIUnM8PndybHy0TtiQlLVj6+7SXYa4nyLWQqWeqbvTv4v3AwOTRUcm/RzQjv7ipBeIYqGFAOAYixhdRVsE7TlLYRyM9Za/HYfP73GIKdB+Vm+YImOoc="
+    secure: ""
   on:
     tags: true
     # all_branches is required to use tags
     all_branches: true
     # Only publish if our main Ruby target builds
-    rvm: 1.9.3
+    rvm: 2.3.1
