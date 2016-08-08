@@ -64,6 +64,7 @@ Puppet::Type.type(:http_conn_validator).provide(:http_conn_validator) do
       resource[:port],
       resource[:use_ssl],
       resource[:test_url],
-      resource[:expected_code])
+      resource[:expected_code]
+)
   end
 end
