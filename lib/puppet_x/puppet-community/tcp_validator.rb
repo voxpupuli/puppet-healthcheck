@@ -9,7 +9,6 @@ module PuppetX
       attr_reader :tcp_port
 
       def initialize(tcp_resource_name, tcp_server, tcp_port)
-
           # NOTE (spredzy) : By relying on the uri module
           # we rely on its well tested interface to parse
           # both IPv4 and IPv6 based URL with a port specified.
@@ -21,7 +20,6 @@ module PuppetX
         rescue
           @tcp_server = IPAddr.new(Socket.getaddrinfo(tcp_server, nil)[0][3]).to_s
           @tcp_port   = tcp_port
-
       end
 
       # Utility method; attempts to make a tcp connection to the specified server.
