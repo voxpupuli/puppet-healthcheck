@@ -1,5 +1,4 @@
 Puppet::Type.newtype(:http_conn_validator) do
-
   @doc = "Verify that a connection can be successfully established between a node
           and an HTTP server.  Its primary use is as a precondition to
           prevent configuration changes from being applied if the HTTP
@@ -77,5 +76,4 @@ Puppet::Type.newtype(:http_conn_validator) do
       Integer(value)
     end
   end
-
 end

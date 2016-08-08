@@ -43,5 +43,4 @@ Puppet::Type.type(:tcp_conn_validator).provide(:tcp_port) do
   def validator
     @validator ||= PuppetX::PuppetCommunity::TcpValidator.new(resource[:name], resource[:host], resource[:port])
   end
-
 end
