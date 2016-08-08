@@ -41,7 +41,7 @@ module PuppetX
           return false
         end
         return true
-      rescue Exception => e
+      rescue StandardError => e
         Puppet.notice "Unable to connect to the server (http#{use_ssl ? 's' : ''}://#{http_server}:#{http_port}): #{e.message}"
         return false
       end
