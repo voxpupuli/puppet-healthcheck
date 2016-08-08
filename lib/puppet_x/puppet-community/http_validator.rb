@@ -37,12 +37,12 @@ module PuppetX
 
         response = conn.get(test_path, test_headers)
         unless response.code.to_i == expected_code
-          Puppet.notice "Unable to connect to the server or wrong HTTP code (expected #{expected_code}) (http#{use_ssl ? "s" : ""}://#{http_server}:#{http_port}): [#{response.code}] #{response.msg}"
+          Puppet.notice "Unable to connect to the server or wrong HTTP code (expected #{expected_code}) (http#{use_ssl ? 's' : ''}://#{http_server}:#{http_port}): [#{response.code}] #{response.msg}"
           return false
         end
         return true
       rescue Exception => e
-        Puppet.notice "Unable to connect to the server (http#{use_ssl ? "s" : ""}://#{http_server}:#{http_port}): #{e.message}"
+        Puppet.notice "Unable to connect to the server (http#{use_ssl ? 's' : ''}://#{http_server}:#{http_port}): #{e.message}"
         return false
       end
     end
