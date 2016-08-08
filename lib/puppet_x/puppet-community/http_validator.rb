@@ -48,4 +48,3 @@ module PuppetX
     end
   end
 end
-

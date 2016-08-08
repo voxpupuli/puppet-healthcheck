@@ -68,4 +68,3 @@ Puppet::Type.type(:http_conn_validator).provide(:http_conn_validator) do
   end
 
 end
-

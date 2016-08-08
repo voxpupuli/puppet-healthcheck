@@ -45,4 +45,3 @@ Puppet::Type.type(:tcp_conn_validator).provide(:tcp_port) do
   end
 
 end
-
