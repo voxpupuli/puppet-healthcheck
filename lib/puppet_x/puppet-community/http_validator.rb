@@ -11,7 +11,7 @@ module PuppetX
       attr_reader :expected_code
 
       def initialize(http_resource_name, http_server, http_port, use_ssl, test_path, expected_code)
-        if http_resource_name =~ /\A#{URI.regexp}\z/
+        if http_resource_name =~ %r{\A#{URI.regexp}\z}
           uri = URI(http_resource_name)
           @http_server = uri.host
           @http_port   = uri.port
