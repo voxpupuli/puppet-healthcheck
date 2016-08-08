@@ -1,5 +1,4 @@
 Puppet::Type.newtype(:tcp_conn_validator) do
-
   @doc = "Verify that a TCP connection can be successfully established between a node
           and the expected host.  Its primary use is as a precondition to
           prevent configuration changes from being applied if the host cannot be
@@ -10,7 +9,7 @@ Puppet::Type.newtype(:tcp_conn_validator) do
     defaultto :present
   end
 
-  newparam(:name, :namevar => true) do
+  newparam(:name, namevar: true) do
     desc 'An arbitrary name used as the identity of the resource.'
   end
 
@@ -52,5 +51,4 @@ Puppet::Type.newtype(:tcp_conn_validator) do
       Integer(value)
     end
   end
-
 end
