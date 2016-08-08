@@ -1,4 +1,4 @@
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__),"..","..",".."))
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), "..", "..", ".."))
 require 'puppet_x/puppet-community/http_validator'
 
 # This file contains a provider for the resource type `http_conn_validator`,
