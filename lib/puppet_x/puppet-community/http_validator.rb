@@ -23,7 +23,7 @@ module PuppetX
           @use_ssl     = use_ssl
           @test_path   = test_path
         end
-        @test_headers = { "Accept" => "application/json" }
+        @test_headers = { 'Accept' => 'application/json' }
         @expected_code = expected_code
       end
 
