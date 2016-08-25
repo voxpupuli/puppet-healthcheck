@@ -9,8 +9,9 @@ module PuppetX
       attr_reader :test_path
       attr_reader :test_headers
       attr_reader :expected_code
+      attr_reader :verify_peer
 
-      def initialize(http_resource_name, http_server, http_port, use_ssl, test_path, expected_code)
+      def initialize(http_resource_name, http_server, http_port, use_ssl, test_path, expected_code, verify_peer)
         if http_resource_name =~ %r{\A#{URI.regexp}\z}
           uri = URI(http_resource_name)
           @http_server = uri.host
@@ -25,6 +26,7 @@ module PuppetX
         end
         @test_headers = { 'Accept' => 'application/json' }
         @expected_code = expected_code
+        @verify_peer = verify_peer
       end
 
       # Utility method; attempts to make an http/https connection to a server.
@@ -33,7 +35,7 @@ module PuppetX
       #
       # @return true if the connection is successful, false otherwise.
       def attempt_connection
-        conn = Puppet::Network::HttpPool.http_instance(http_server, http_port, use_ssl)
+        conn = Puppet::Network::HttpPool.http_instance(http_server, http_port, use_ssl, verify_peer)
 
         response = conn.get(test_path, test_headers)
         unless response.code.to_i == expected_code
