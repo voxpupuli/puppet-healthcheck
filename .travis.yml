@@ -23,24 +23,22 @@ matrix:
     env: PUPPET_VERSION="~> 3.0" STRICT_VARIABLES="yes" CHECK=test
   - rvm: 2.1.9
     env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: 2.2.5
+  - rvm: 2.2.6
     env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: 2.3.1
+  - rvm: 2.3.3
     env: PUPPET_VERSION="~> 4.0" CHECK=build DEPLOY_TO_FORGE=yes
-  - rvm: 2.3.1
+  - rvm: 2.3.3
     env: PUPPET_VERSION="~> 4.0" CHECK=rubocop
-  - rvm: 2.3.1
+  - rvm: 2.3.3
     env: PUPPET_VERSION="~> 4.0" CHECK=test
-  - rvm: 2.4.0-preview1
+  - rvm: 2.4.0-preview3
     env: PUPPET_VERSION="~> 4.0" CHECK=test
   allow_failures:
-    - rvm: 2.4.0-preview1
+    - rvm: 2.4.0-preview3
 notifications:
   email: false
 deploy:
   provider: puppetforge
-  deploy:
-    branch: ha-bug-puppet-forge
   user: puppet
   password:
     secure: "GHyLCAzcHCFBMEZmKqCTa4lORtkhn1MX/xia5lQqW4o5c8SWkKPqTTtjqVVbTOEAZmGEQs0+jxF+AAXVyrkCLFiD/7E1BgNlMgnYK9bQP5YtHrblyIn8Fbs47nM9AVaScQ7T0OGeeLvb3VTxQJpco39FpCXCkKwB1UBh5LlhLD7I3E2mfYU6/GHthYrZR8OJkiZJ+XDbWYyAkIFzqzFUeV5KQrXGQxe+jxdSr+T95euYMNQRctX4+KFprhGwLxivGgEeO4jZZ9+lnsdbq3VJDD0u3ZM37Sh7hHO9wCDHLQSsNMzzeUHyF55XHPFXWKD8sjixM/ieGCJCnDc6LQXcQ6K7sz9b5WXqHWzUgFWsTnH6ZSUkn7ZwRC2UMKZRlJBpBhMxRsyAMk3vozbkL+CwdWVybxXy7rncpjT+4zwxCPtXTdKjNfSJ7BG1kg9uchlFM4/IijZUjajIyJg2QJ1Q9tzida43PXvAPma4b5vGwakJJZEyCtKgQXRzO/GRvxwLSROjYxEL5mRpG+7ADmaRc6qEfL8FtiMxjyrh7R0NNPl/YxT1vmouQm+MxHtWfDah/mez9BBzCRkVTO3Tg1JG4w1hwBugYuxM+YcL3Ex7QEMsD4Z3KNErhwqrHFSeaYpPIewRvsLeKavk5OoiENiVLNn+eRQoaN1AvoxViT81zEE="
