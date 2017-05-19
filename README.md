@@ -89,3 +89,7 @@ Number of seconds to wait before timing out. Default: 60
 
 Expected HTTP result code to consider success. Default: 200
 
+####`verify_peer`
+
+Whether to verify the peer credentials, if possible. Verification will not take place if the CA certificate is missing
+
