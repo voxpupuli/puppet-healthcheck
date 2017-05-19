@@ -47,7 +47,7 @@ IPv6 connection strings. It also works with hostname.
 
 ```puppet
 http_conn_validator { 'foo-machine home' :
-  home    => '127.0.0.1',
+  host    => '127.0.0.1',
   port    => 80,
   use_ssl => true,
 }
