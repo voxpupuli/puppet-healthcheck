@@ -1,27 +1,41 @@
-# Change log
+# Changelog
 
 All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
-These should not impact the functionality of the module.
+These should not affect the functionality of the module.
+
+## [v0.4.0](https://github.com/voxpupuli/puppet-healthcheck/tree/v0.4.0) (2017-11-17)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/v0.3.0...v0.4.0)
+
+**Merged pull requests:**
+
+- bump puppet version dependency to \>= 4.7.1 \< 6.0.0 [\#31](https://github.com/voxpupuli/puppet-healthcheck/pull/31) ([bastelfreak](https://github.com/bastelfreak))
 
 ## [v0.3.0](https://github.com/voxpupuli/puppet-healthcheck/tree/v0.3.0) (2017-06-15)
+
 [Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/v0.2.0...v0.3.0)
 
 **Merged pull requests:**
 
+- release 0.3.0 [\#28](https://github.com/voxpupuli/puppet-healthcheck/pull/28) ([bastelfreak](https://github.com/bastelfreak))
 - Document the verify peer parameter [\#26](https://github.com/voxpupuli/puppet-healthcheck/pull/26) ([duritong](https://github.com/duritong))
 - fix example [\#25](https://github.com/voxpupuli/puppet-healthcheck/pull/25) ([duritong](https://github.com/duritong))
 - Add LICENSE file [\#24](https://github.com/voxpupuli/puppet-healthcheck/pull/24) ([alexjfisher](https://github.com/alexjfisher))
+- release 0.2.0 [\#18](https://github.com/voxpupuli/puppet-healthcheck/pull/18) ([bastelfreak](https://github.com/bastelfreak))
 
 ## [v0.2.0](https://github.com/voxpupuli/puppet-healthcheck/tree/v0.2.0) (2017-01-12)
+
 [Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/v0.1.0...v0.2.0)
 
 **Merged pull requests:**
 
-- release 0.2.0 [\#18](https://github.com/voxpupuli/puppet-healthcheck/pull/18) ([bastelfreak](https://github.com/bastelfreak))
 - Bump minimum version\_requirement for Puppet [\#16](https://github.com/voxpupuli/puppet-healthcheck/pull/16) ([juniorsysadmin](https://github.com/juniorsysadmin))
 
 ## [v0.1.0](https://github.com/voxpupuli/puppet-healthcheck/tree/v0.1.0) (2016-08-31)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/00ccbf0030226f18b2bf3493f9006c338dc78389...v0.1.0)
+
 **Merged pull requests:**
 
 - Added verify\_peer property to provider. [\#9](https://github.com/voxpupuli/puppet-healthcheck/pull/9) ([soylentgrn](https://github.com/soylentgrn))
