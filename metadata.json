@@ -12,7 +12,6 @@
     {
       "operatingsystem": "RedHat",
       "operatingsystemrelease": [
-        "5",
         "6",
         "7"
       ]
@@ -20,7 +19,6 @@
     {
       "operatingsystem": "CentOS",
       "operatingsystemrelease": [
-        "5",
         "6",
         "7"
       ]
@@ -34,14 +32,6 @@
     },
     {
       "operatingsystem": "Scientific",
-      "operatingsystemrelease": [
-        "5",
-        "6",
-        "7"
-      ]
-    },
-    {
-      "operatingsystem": "Debian",
       "operatingsystemrelease": [
         "6",
         "7"
@@ -59,10 +49,8 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 4.7.1 < 6.0.0"
+      "version_requirement": ">= 4.10.0 < 6.0.0"
     }
   ],
-  "dependencies": [
-
-  ]
+  "dependencies": []
 }
