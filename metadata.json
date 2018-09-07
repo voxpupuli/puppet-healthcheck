@@ -1,6 +1,6 @@
 {
   "name": "puppet-healthcheck",
-  "version": "0.4.1",
+  "version": "0.4.2-rc0",
   "author": "Vox Pupuli",
   "summary": "Puppet resources to evauluate the health and status of things",
   "license": "Apache-2.0",
@@ -50,5 +50,7 @@
       "version_requirement": ">= 4.10.0 < 6.0.0"
     }
   ],
-  "dependencies": []
+  "dependencies": [
+
+  ]
 }
