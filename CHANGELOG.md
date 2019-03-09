@@ -4,7 +4,19 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v0.4.1](https://github.com/voxpupuli/puppet-healthcheck/tree/v0.4.1) (2018-09-06)
+## [v1.0.0](https://github.com/voxpupuli/puppet-healthcheck/tree/v1.0.0) (2019-03-09)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/v0.4.1...v1.0.0)
+
+**Breaking changes:**
+
+- modulesync 2.6.0 & drop Puppet 4 [\#47](https://github.com/voxpupuli/puppet-healthcheck/pull/47) ([bastelfreak](https://github.com/bastelfreak))
+
+**Merged pull requests:**
+
+- modulesync 2.2.0 and allow puppet 6.x [\#44](https://github.com/voxpupuli/puppet-healthcheck/pull/44) ([bastelfreak](https://github.com/bastelfreak))
+
+## [v0.4.1](https://github.com/voxpupuli/puppet-healthcheck/tree/v0.4.1) (2018-09-07)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/v0.4.0...v0.4.1)
 
@@ -28,7 +40,6 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
-- Document the verify peer parameter [\#26](https://github.com/voxpupuli/puppet-healthcheck/pull/26) ([duritong](https://github.com/duritong))
 - fix example [\#25](https://github.com/voxpupuli/puppet-healthcheck/pull/25) ([duritong](https://github.com/duritong))
 - Add LICENSE file [\#24](https://github.com/voxpupuli/puppet-healthcheck/pull/24) ([alexjfisher](https://github.com/alexjfisher))
 
