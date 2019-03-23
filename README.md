@@ -23,19 +23,19 @@ mongodb_cluster_nodes = ['192.168.0.2:27017', 'node02.foo.bar.com:27017']
 tcp_conn_validator { $mongodb_cluster_nodes : }
 ```
 
-####`host`
+#### `host`
 
 IP address or server DNS name on which the service is supposed to be bound to. Required if the namevar is not a connection string.
 
-####`port`
+#### `port`
 
 Port on which the service is supposed to listen. Required if the namevar is not a connection string.
 
-####`try_sleep`
+#### `try_sleep`
 
 The time to sleep in seconds between ‘tries’. Default: 1
 
-####`timeout`
+#### `timeout`
 
 Number of seconds to wait before timing out. Default: 60
 
@@ -61,35 +61,35 @@ appli_cluster_nodes = ['https://server1.com/test-url', 'https://server2.com/test
 http_conn_validator { $appli_cluster_nodes : }
 ```
 
-####`host`
+#### `host`
 
 IP address or server DNS name on which the service is supposed to be bound to. Required if the namevar is not a connection string.
 
-####`port`
+#### `port`
 
 Port on which the service is supposed to listen. Required if the namevar is not a connection string.
 
-####`use_ssl`
+#### `use_ssl`
 
 Whether the connection will be attempted using https. Default: false
 
-####`test_url`
+#### `test_url`
 
 URL to use for testing if the HTTP server is up. Default: /
 
-####`try_sleep`
+#### `try_sleep`
 
 The time to sleep in seconds between ‘tries’. Default: 1
 
-####`timeout`
+#### `timeout`
 
 Number of seconds to wait before timing out. Default: 60
 
-####`expected_code`
+#### `expected_code`
 
 Expected HTTP result code to consider success. Default: 200
 
-####`verify_peer`
+#### `verify_peer`
 
 Whether to verify the peer credentials, if possible. Verification will not take place if the CA certificate is missing
 
