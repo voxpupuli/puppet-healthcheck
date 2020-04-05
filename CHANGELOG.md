@@ -4,7 +4,23 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v1.0.0](https://github.com/voxpupuli/puppet-healthcheck/tree/v1.0.0) (2019-03-09)
+## [v1.0.1](https://github.com/voxpupuli/puppet-healthcheck/tree/v1.0.1) (2020-04-05)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/v1.0.0...v1.0.1)
+
+**Fixed bugs:**
+
+- replace configtimeout with http\_connect\_timeout \(\#54\) [\#55](https://github.com/voxpupuli/puppet-healthcheck/pull/55) ([b4ldr](https://github.com/b4ldr))
+
+**Closed issues:**
+
+- Accessing 'configtimeout' as a setting is deprecated [\#54](https://github.com/voxpupuli/puppet-healthcheck/issues/54)
+
+**Merged pull requests:**
+
+- README Formatting fix [\#49](https://github.com/voxpupuli/puppet-healthcheck/pull/49) ([deanwilson](https://github.com/deanwilson))
+
+## [v1.0.0](https://github.com/voxpupuli/puppet-healthcheck/tree/v1.0.0) (2019-03-16)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/v0.4.1...v1.0.0)
 
@@ -40,6 +56,7 @@ These should not affect the functionality of the module.
 
 **Merged pull requests:**
 
+- Document the verify peer parameter [\#26](https://github.com/voxpupuli/puppet-healthcheck/pull/26) ([duritong](https://github.com/duritong))
 - fix example [\#25](https://github.com/voxpupuli/puppet-healthcheck/pull/25) ([duritong](https://github.com/duritong))
 - Add LICENSE file [\#24](https://github.com/voxpupuli/puppet-healthcheck/pull/24) ([alexjfisher](https://github.com/alexjfisher))
 
