@@ -18,14 +18,12 @@ module PuppetX
         end
         @test_headers = { 'Accept' => 'application/json' }
         @expected_code = expected_code
-        @options = if @use_ssl then
+        @options = if @use_ssl
                      if verify_peer
                        { include_system_store: true }
                      else
                        { ssl_context: Puppet::SSL::SSLProvider.new.create_insecure_context }
                      end
-                   else
-                     nil
                    end
       end
 
