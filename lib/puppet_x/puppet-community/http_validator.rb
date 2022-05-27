@@ -39,7 +39,7 @@ module PuppetX
 
         response = conn.get(test_uri, headers: test_headers, options: options)
         unless response.code.to_i == expected_code
-          Puppet.notice "Unable to connect to the server or wrong HTTP code (expected #{expected_code}) (#{test_uri}): [#{response.code}] #{response.msg}"
+          Puppet.notice "Unable to connect to the server or wrong HTTP code (expected #{expected_code}) (#{test_uri}): [#{response.code}] #{response.reason}"
           return false
         end
         return true
