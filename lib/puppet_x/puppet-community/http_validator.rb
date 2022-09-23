@@ -3,30 +3,28 @@ require 'puppet/network/http_pool'
 module PuppetX
   module PuppetCommunity
     class HttpValidator
-      attr_reader :http_server
-      attr_reader :http_port
-      attr_reader :use_ssl
-      attr_reader :test_path
+      attr_reader :test_uri
       attr_reader :test_headers
       attr_reader :expected_code
-      attr_reader :verify_peer
+      attr_reader :options
 
       def initialize(http_resource_name, http_server, http_port, use_ssl, test_path, expected_code, verify_peer)
         if http_resource_name =~ %r{\A#{URI.regexp}\z}
-          uri = URI(http_resource_name)
-          @http_server = uri.host
-          @http_port   = uri.port
-          @use_ssl     = uri.scheme.eql?('https') ? true : false
-          @test_path   = uri.request_uri
+          @test_uri = URI(http_resource_name)
+          @use_ssl     = @test_uri.scheme.eql?('https') ? true : false
         else
-          @http_server = http_server
-          @http_port   = http_port
           @use_ssl     = use_ssl
-          @test_path   = test_path
+          @test_uri    = URI("#{use_ssl ? 'https' : 'http'}://#{http_server}:#{http_port}#{test_path}")
         end
         @test_headers = { 'Accept' => 'application/json' }
         @expected_code = expected_code
-        @verify_peer = verify_peer
+        @options = if @use_ssl
+                     if verify_peer
+                       { include_system_store: true }
+                     else
+                       { ssl_context: Puppet::SSL::SSLProvider.new.create_insecure_context }
+                     end
+                   end
       end
 
       # Utility method; attempts to make an http/https connection to a server.
@@ -35,16 +33,16 @@ module PuppetX
       #
       # @return true if the connection is successful, false otherwise.
       def attempt_connection
-        conn = Puppet::Network::HttpPool.http_instance(http_server, http_port, use_ssl, verify_peer)
+        conn = Puppet.runtime[:http]
 
-        response = conn.get(test_path, test_headers)
+        response = conn.get(test_uri, headers: test_headers, options: options)
         unless response.code.to_i == expected_code
-          Puppet.notice "Unable to connect to the server or wrong HTTP code (expected #{expected_code}) (http#{use_ssl ? 's' : ''}://#{http_server}:#{http_port}): [#{response.code}] #{response.msg}"
+          Puppet.notice "Unable to connect to the server or wrong HTTP code (expected #{expected_code}) (#{test_uri}): [#{response.code}] #{response.reason}"
           return false
         end
         return true
       rescue StandardError => e
-        Puppet.notice "Unable to connect to the server (http#{use_ssl ? 's' : ''}://#{http_server}:#{http_port}): #{e.message}"
+        Puppet.notice "Unable to connect to the server (#{test_uri}): #{e.message}"
         return false
       end
     end
