@@ -45,6 +45,10 @@ Number of seconds to wait before timing out. Default: 60
 It could be used to test either a remote or a local service. It support both IPv4 and
 IPv6 connection strings. It also works with hostname.
 
+**It currently has the `Accept` header hardcoded to `application/json`, you can only connect to sites that return json**
+
+See https://github.com/voxpupuli/puppet-healthcheck/blob/b3723805d629cc01767a2fb12c4c8a023d707f94/lib/puppet_x/puppet-community/http_validator.rb#L19 for details
+
 ```puppet
 http_conn_validator { 'foo-machine home' :
   host    => '127.0.0.1',
