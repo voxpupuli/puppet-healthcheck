@@ -10,7 +10,28 @@ describe 'dbbackup' do
         host => '127.0.0.1',
         port => 22,
       }
+      -> file { '/tmp/hello':
+      content => "Hi!\n",
+      }
+      http_conn_validator { 'github https test':
+        host          => 'api.github.com',
+        port          => '443',
+        expected_code => 200,
+        verify_peer   => false,
+        use_ssl       => true,
+        timeout       => 5,
+      }
+      -> file { '/tmp/foo':
+        content => "Hi!\n",
+      }
       PUPPET
     end
+  end
+  describe file('/tmp/hello') do
+    it { is_expected.to be_file }
+  end
+
+  describe file('/tmp/foo') do
+    it { is_expected.to be_file }
   end
 end
