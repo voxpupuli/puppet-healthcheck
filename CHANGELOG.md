@@ -4,6 +4,33 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.0.0](https://github.com/voxpupuli/puppet-healthcheck/tree/v2.0.0) (2023-05-02)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/v1.0.1...v2.0.0)
+
+**Breaking changes:**
+
+- Drop Puppet 6 support [\#74](https://github.com/voxpupuli/puppet-healthcheck/pull/74) ([bastelfreak](https://github.com/bastelfreak))
+- Drop Eol EL6/Ubuntu 14.04 support [\#71](https://github.com/voxpupuli/puppet-healthcheck/pull/71) ([bastelfreak](https://github.com/bastelfreak))
+- Fix \#61 - Migrate to new runtime client, take II [\#66](https://github.com/voxpupuli/puppet-healthcheck/pull/66) ([kbucheli](https://github.com/kbucheli))
+- Fix \#61 - Migrate to new runtime client [\#62](https://github.com/voxpupuli/puppet-healthcheck/pull/62) ([duritong](https://github.com/duritong))
+
+**Implemented enhancements:**
+
+- Add EL8/9, Ubuntu 20/22 and Debian 10/11 support [\#72](https://github.com/voxpupuli/puppet-healthcheck/pull/72) ([bastelfreak](https://github.com/bastelfreak))
+- Add tcp\_conn\_validator acceptance tests [\#70](https://github.com/voxpupuli/puppet-healthcheck/pull/70) ([bastelfreak](https://github.com/bastelfreak))
+
+**Closed issues:**
+
+- Puppet 7 gives deprecation warning [\#61](https://github.com/voxpupuli/puppet-healthcheck/issues/61)
+
+**Merged pull requests:**
+
+- Document json accept header in README.md [\#75](https://github.com/voxpupuli/puppet-healthcheck/pull/75) ([bastelfreak](https://github.com/bastelfreak))
+- Add http\_conn\_validator acceptance tests [\#73](https://github.com/voxpupuli/puppet-healthcheck/pull/73) ([bastelfreak](https://github.com/bastelfreak))
+- Add REFERENCE.md [\#68](https://github.com/voxpupuli/puppet-healthcheck/pull/68) ([bastelfreak](https://github.com/bastelfreak))
+- puppet-lint: Enable docs and types check [\#67](https://github.com/voxpupuli/puppet-healthcheck/pull/67) ([bastelfreak](https://github.com/bastelfreak))
+
 ## [v1.0.1](https://github.com/voxpupuli/puppet-healthcheck/tree/v1.0.1) (2020-04-05)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/v1.0.0...v1.0.1)
