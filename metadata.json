@@ -2,7 +2,7 @@
   "name": "puppet-healthcheck",
   "version": "2.0.1-rc0",
   "author": "Vox Pupuli",
-  "summary": "Puppet resources to evauluate the health and status of things",
+  "summary": "Puppet resources to evaluate the health and status of things",
   "license": "Apache-2.0",
   "source": "https://github.com/voxpupuli/puppet-healthcheck.git",
   "project_page": "https://github.com/voxpupuli/puppet-healthcheck",
