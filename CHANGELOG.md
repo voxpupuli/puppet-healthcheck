@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
+## [v2.1.0](https://github.com/voxpupuli/puppet-healthcheck/tree/v2.1.0) (2024-04-30)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/v2.0.0...v2.1.0)
+
+**Implemented enhancements:**
+
+- Add Debian 12 support [\#88](https://github.com/voxpupuli/puppet-healthcheck/pull/88) ([bastelfreak](https://github.com/bastelfreak))
+- Add Puppet 8 support [\#79](https://github.com/voxpupuli/puppet-healthcheck/pull/79) ([bastelfreak](https://github.com/bastelfreak))
+
+**Merged pull requests:**
+
+- metadata.json: fix typo in summary [\#81](https://github.com/voxpupuli/puppet-healthcheck/pull/81) ([kenyon](https://github.com/kenyon))
+
 ## [v2.0.0](https://github.com/voxpupuli/puppet-healthcheck/tree/v2.0.0) (2023-05-02)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-healthcheck/compare/v1.0.1...v2.0.0)
