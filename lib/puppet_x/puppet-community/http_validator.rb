@@ -40,10 +40,10 @@ module PuppetX
           Puppet.notice "Unable to connect to the server or wrong HTTP code (expected #{expected_code}) (#{test_uri}): [#{response.code}] #{response.reason}"
           return false
         end
-        return true
+        true
       rescue StandardError => e
         Puppet.notice "Unable to connect to the server (#{test_uri}): #{e.message}"
-        return false
+        false
       end
     end
   end

@@ -17,7 +17,7 @@ module PuppetX
         uri = URI("http://#{tcp_resource_name}")
         @tcp_server = IPAddr.new(Socket.getaddrinfo(uri.host, nil)[0][3]).to_s
         @tcp_port = uri.port
-      rescue
+      rescue StandardError
         @tcp_server = IPAddr.new(Socket.getaddrinfo(tcp_server, nil)[0][3]).to_s
         @tcp_port   = tcp_port
       end
@@ -29,13 +29,11 @@ module PuppetX
       # @return true if the connection is successful, false otherwise.
       def attempt_connection
         Timeout.timeout(Puppet[:http_connect_timeout]) do
-          begin
-            TCPSocket.new(@tcp_server, @tcp_port).close
-            true
-          rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH => e
-            Puppet.debug "Unable to connect to tcp host (#{@tcp_server}:#{@tcp_port}): #{e.message}"
-            false
-          end
+          TCPSocket.new(@tcp_server, @tcp_port).close
+          true
+        rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH => e
+          Puppet.debug "Unable to connect to tcp host (#{@tcp_server}:#{@tcp_port}): #{e.message}"
+          false
         end
       rescue Timeout::Error
         false

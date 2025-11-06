@@ -18,6 +18,7 @@ describe 'test run interval workflow' do
       expect(file('/etc/puppetlabs/puppet/puppet.conf')).to contain('runinterval = 3000')
     end
   end
+
   context 'fix run interval' do
     it do
       run_bolt_task('healthcheck::fix_runinterval')

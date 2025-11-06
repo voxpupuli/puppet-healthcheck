@@ -18,6 +18,7 @@ describe 'test noop workflow' do
       expect(file('/etc/puppetlabs/puppet/puppet.conf')).to contain('noop = true')
     end
   end
+
   context 'set noop to false' do
     it do
       run_bolt_task('healthcheck::fix_noop')

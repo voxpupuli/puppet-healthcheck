@@ -16,11 +16,7 @@ json = {}
 params = JSON.parse(STDIN.read)
 config = JSON.parse(output)
 
-target_state = if params['target_state']
-                 params['target_state']
-               else
-                 1800
-               end
+target_state = params['target_state'] || 1800
 
 current_state = config['runinterval']
 

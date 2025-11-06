@@ -14,6 +14,7 @@ describe 'test lockfile workflow' do
       end
     end
   end
+
   context 'remote lockfile' do
     it do
       run_bolt_task('healthcheck::fix_lockfile')

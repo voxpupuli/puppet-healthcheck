@@ -91,6 +91,7 @@ if File.file?(last_run)
   last_run_contents.each_line do |line|
     matchdata = line.match(%r{^time: '(.*)'$})
     next unless matchdata
+
     run_time = Time.parse(matchdata[1]).to_i
   end
   now = Time.new.to_i
@@ -102,6 +103,7 @@ if File.file?(last_run)
   last_run_contents.each_line do |line|
     matchdata = line.match(%r{.*(fail.*: [1-9]|skipped.*: [1-9])})
     next unless matchdata
+
     failcount += 1
   end
   if failcount > 0
@@ -118,6 +120,7 @@ if File.file?(report)
   report_contents.each_line do |line|
     matchdata = line.include?('status: failed')
     next unless matchdata
+
     failcount += 1
   end
   if failcount > 0
@@ -153,13 +156,13 @@ end
 if compile_masters[0]
   compile_masters.each do |compiler|
     TCPSocket.new(compiler, pm_port)
-  rescue
+  rescue StandardError
     json['issues']['port ' + compiler] = 'Port ' + pm_port.to_s + ' on ' + compiler + ' not reachable'
   end
 else
   begin
     TCPSocket.new(puppetmaster, pm_port)
-  rescue
+  rescue StandardError
     json['issues']['port'] = 'Port ' + pm_port.to_s + ' on ' + puppetmaster + ' not reachable'
   end
 end

@@ -16,11 +16,7 @@ json = {}
 params = JSON.parse(STDIN.read)
 config = JSON.parse(output)
 
-target_state = if params['target_state']
-                 params['target_state']
-               else
-                 false
-               end
+target_state = params['target_state'] || false
 
 current_state = config['use_cached_catalog']
 
