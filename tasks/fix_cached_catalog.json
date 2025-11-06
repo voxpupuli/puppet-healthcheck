@@ -1,0 +1,11 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Set the cached catalog value of a node",
+  "parameters": {
+    "target_state": {
+      "description": "What should the use_cached_catalog value be set to? (Defaults to false)",
+      "type": "Optional[Boolean]"
+    }
+  }
+}
