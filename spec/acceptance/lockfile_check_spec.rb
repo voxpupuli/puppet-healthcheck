@@ -1,15 +1,17 @@
+# frozen_string_literal: true
+
 require 'spec_helper_acceptance'
 
 describe 'test lockfile workflow' do
   context 'create lockfile' do
     it do
       if host_inventory['kernel']['name'] == 'Windows'
-        run_shell('mkdir  %PROGRAMDATA%\PuppetLabs\puppet\cache\state')
-        run_shell('echo > %PROGRAMDATA%\PuppetLabs\puppet\cache\agent_disabled.lock')
+        shell('mkdir  %PROGRAMDATA%\PuppetLabs\puppet\cache\state')
+        shell('echo > %PROGRAMDATA%\PuppetLabs\puppet\cache\agent_disabled.lock')
         expect(file('%PROGRAMDATA\PuppetLabs\puppet\cache\agent_disabled.lock')).to be_file
       elsif host_inventory['kernel']['name'] == 'Linux'
-        run_shell('mkdir -p /opt/puppetlabs/puppet/cache/state')
-        run_shell('touch /opt/puppetlabs/puppet/cache/state/agent_disabled.lock')
+        shell('mkdir -p /opt/puppetlabs/puppet/cache/state')
+        shell('touch /opt/puppetlabs/puppet/cache/state/agent_disabled.lock')
         expect(file('/opt/puppetlabs/puppet/cache/state/agent_disabled.lock')).to be_file
       end
     end
