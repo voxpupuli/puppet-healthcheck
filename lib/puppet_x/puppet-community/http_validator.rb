@@ -11,7 +11,7 @@ module PuppetX
       def initialize(http_resource_name, http_server, http_port, use_ssl, test_path, expected_code, verify_peer)
         if http_resource_name =~ %r{\A#{URI.regexp}\z}
           @test_uri = URI(http_resource_name)
-          @use_ssl     = @test_uri.scheme.eql?('https') ? true : false
+          @use_ssl     = @test_uri.scheme.eql?('https') || false
         else
           @use_ssl     = use_ssl
           @test_uri    = URI("#{use_ssl ? 'https' : 'http'}://#{http_server}:#{http_port}#{test_path}")
