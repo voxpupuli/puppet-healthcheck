@@ -1,0 +1,27 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": true,
+  "description": "Check the health of a puppet agent",
+  "parameters": {
+    "target_runinterval": {
+      "description": "What should the agent run interval be set to? (Defaults to 1800 seconds)",
+      "type": "Optional[Integer]"
+    },
+    "target_noop_state": {
+      "description": "What should the agent noop state be set to? (Defaults to false)",
+      "type": "Optional[Boolean]"
+    },
+    "target_use_cached_catalog_state": {
+      "description": "What should the agent use_cached_catalog state be set to? (Defaults to false)",
+      "type": "Optional[Boolean]"
+    },
+    "target_service_enabled": {
+      "description": "Should the puppet service be enabled? (Defaults to true)",
+      "type": "Optional[Boolean]"
+    },
+    "target_service_running": {
+      "description": "Should the puppet service be running? (Defaults to 'running')",
+      "type": "Optional[Variant[Boolean,Enum['running', 'stopped']]]"
+    }
+  }
+}

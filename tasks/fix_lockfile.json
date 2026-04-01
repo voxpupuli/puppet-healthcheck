@@ -1,0 +1,5 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Remove the agent lock file"
+}
