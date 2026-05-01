@@ -9,6 +9,18 @@
 * [`http_conn_validator`](#http_conn_validator): Verify that a connection can be successfully established between a node and an HTTP server.  Its primary use is as a precondition to prevent 
 * [`tcp_conn_validator`](#tcp_conn_validator): Verify that a TCP connection can be successfully established between a node and the expected host.  Its primary use is as a precondition to p
 
+### Tasks
+
+* [`agent_health`](#agent_health): Check the health of a puppet agent
+* [`fix_cached_catalog`](#fix_cached_catalog): Set the cached catalog value of a node
+* [`fix_lockfile`](#fix_lockfile): Remove the agent lock file
+* [`fix_noop`](#fix_noop): Set the noop value of a node
+* [`fix_runinterval`](#fix_runinterval): Set the runinterval value of a node
+
+### Plans
+
+* [`healthcheck::fix_nodes`](#healthcheck--fix_nodes): Plan to carry out automated fixes found by the health_check task
+
 ## Resource types
 
 ### <a name="http_conn_validator"></a>`http_conn_validator`
@@ -163,4 +175,149 @@ Default value: `60`
 The time to sleep in seconds between 'tries'.
 
 Default value: `1`
+
+## Tasks
+
+### <a name="agent_health"></a>`agent_health`
+
+Check the health of a puppet agent
+
+**Supports noop?** true
+
+#### Parameters
+
+##### `target_runinterval`
+
+Data type: `Optional[Integer]`
+
+What should the agent run interval be set to? (Defaults to 1800 seconds)
+
+##### `target_noop_state`
+
+Data type: `Optional[Boolean]`
+
+What should the agent noop state be set to? (Defaults to false)
+
+##### `target_use_cached_catalog_state`
+
+Data type: `Optional[Boolean]`
+
+What should the agent use_cached_catalog state be set to? (Defaults to false)
+
+##### `target_service_enabled`
+
+Data type: `Optional[Boolean]`
+
+Should the puppet service be enabled? (Defaults to true)
+
+##### `target_service_running`
+
+Data type: `Optional[Variant[Boolean,Enum['running', 'stopped']]]`
+
+Should the puppet service be running? (Defaults to 'running')
+
+### <a name="fix_cached_catalog"></a>`fix_cached_catalog`
+
+Set the cached catalog value of a node
+
+**Supports noop?** false
+
+#### Parameters
+
+##### `target_state`
+
+Data type: `Optional[Boolean]`
+
+What should the use_cached_catalog value be set to? (Defaults to false)
+
+### <a name="fix_lockfile"></a>`fix_lockfile`
+
+Remove the agent lock file
+
+**Supports noop?** false
+
+### <a name="fix_noop"></a>`fix_noop`
+
+Set the noop value of a node
+
+**Supports noop?** false
+
+#### Parameters
+
+##### `target_state`
+
+Data type: `Optional[Boolean]`
+
+What should the agent noop value be set to? (Defaults to false)
+
+### <a name="fix_runinterval"></a>`fix_runinterval`
+
+Set the runinterval value of a node
+
+**Supports noop?** false
+
+#### Parameters
+
+##### `target_state`
+
+Data type: `Optional[Integer]`
+
+What should the runinterval value be set to? (Defaults to 1800)
+
+## Plans
+
+### <a name="healthcheck--fix_nodes"></a>`healthcheck::fix_nodes`
+
+Plan to carry out automated fixes found by the health_check task
+
+* **See also**
+  * https://github.com/voxpupuli/puppet_health_check
+
+#### Parameters
+
+The following parameters are available in the `healthcheck::fix_nodes` plan:
+
+* [`nodes`](#-healthcheck--fix_nodes--nodes)
+* [`target_noop_state`](#-healthcheck--fix_nodes--target_noop_state)
+* [`target_runinterval`](#-healthcheck--fix_nodes--target_runinterval)
+* [`target_service_enabled`](#-healthcheck--fix_nodes--target_service_enabled)
+* [`target_service_running`](#-healthcheck--fix_nodes--target_service_running)
+
+##### <a name="-healthcheck--fix_nodes--nodes"></a>`nodes`
+
+Data type: `TargetSpec`
+
+
+
+##### <a name="-healthcheck--fix_nodes--target_noop_state"></a>`target_noop_state`
+
+Data type: `Boolean`
+
+
+
+Default value: `false`
+
+##### <a name="-healthcheck--fix_nodes--target_runinterval"></a>`target_runinterval`
+
+Data type: `Integer`
+
+
+
+Default value: `1800`
+
+##### <a name="-healthcheck--fix_nodes--target_service_enabled"></a>`target_service_enabled`
+
+Data type: `Boolean`
+
+
+
+Default value: `true`
+
+##### <a name="-healthcheck--fix_nodes--target_service_running"></a>`target_service_running`
+
+Data type: `Boolean`
+
+
+
+Default value: `true`
 

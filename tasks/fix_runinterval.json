@@ -1,0 +1,11 @@
+{
+  "puppet_task_version": 1,
+  "supports_noop": false,
+  "description": "Set the runinterval value of a node",
+  "parameters": {
+    "target_state": {
+      "description": "What should the runinterval value be set to? (Defaults to 1800)",
+      "type": "Optional[Integer]"
+    }
+  }
+}
